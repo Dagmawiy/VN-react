@@ -1,13 +1,15 @@
 import React from 'react'
 import {Container, Row, Col} from 'react-bootstrap'
-import Transaction from '../../Forms/Transaction'
+import TransactionsForm from '../../Forms/transaction'
+import Transaction from '../view/transaction'
+
 
 const Home = () => {
   return (
     <Container>
       <Row>
-        <Col sm={12} md={4}> <Transaction /></Col>
-        <Col sm={12} md={8}> List</Col>
+        <Col sm={12} md={4}> <TransactionsForm /></Col>
+        <Col sm={12} md={8}> <Transaction /></Col>
       </Row>
     </Container>
   )
