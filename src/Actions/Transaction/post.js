@@ -6,7 +6,7 @@ const create = async (data) => {
         });
     } catch (error) {
         // Handle Error Here
-       return {success : false, error : error.response.data, message : 'Someting went wrong..' };
+       return {success : false, error : error.response, message : 'Someting went wrong..' };
     }
 };
 

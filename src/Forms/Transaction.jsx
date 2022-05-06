@@ -1,13 +1,11 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { Formik,Field,Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Button} from 'react-bootstrap';
 import AlertMessages from './alert';
-import Create from '../Actions/Transaction/post';
-import Update from '../Actions/Transaction/get';
+
 const TransactionsForm = (props) => {
-    const [isLoading, setLoading] = useState();
-    const [errors, setErrors] = useState()
+    
     const schema = Yup.object({
         account_id : Yup.string().required('Pleace add account reference'),
         amount : Yup.string().required('Pleace add amount to given reference')
@@ -19,27 +17,16 @@ const TransactionsForm = (props) => {
 
     const renderError = (message) => <p className="help is-danger">{message}</p>;
 
-    const onSubmit = (data) => {
-        setLoading(true);
-        Create(data).then(res => { //5ae0ef78-e902-4c40-9f53-8cf910587312
-            if(!res.success)
-                setErrors(res.error.errors);
-            setLoading(false);
-            Update().then(res => {
-                console.log(res)
-            });
-        })
-    }
     return (
         <>
             <h3>Submit new transaction</h3>
-            {errors ? <AlertMessages error={errors} variant={'danger'} /> : ''}
-            {!isLoading ? 
+            {props.fromError ? <AlertMessages error={props.fromError.errors} variant={'danger'} /> : ''}
+            {props.loading  ? 'Loading...' :
                 <Formik
                     initialValues={fromData}
                     validationSchema={schema}
                     onSubmit={async (data, { resetForm }) => {
-                        await onSubmit(data);
+                        await props.newTransaction(data);
                         resetForm();
                     }}
                 >
@@ -73,7 +60,7 @@ const TransactionsForm = (props) => {
                 </Form>
                 
                 </Formik>
-            : 'Loading...'}    
+            }    
         </>
     )
 }
