@@ -1,3 +1,20 @@
+# Assigment
+
+1. Make the provided E2E tests pass (ES6).
+2. Keep server data in memory (lockal store atl. redux or flux).
+3. Implement client-side validation of the form data (yup react hook).
+4. Ensure that the frontend app remains responsive while the data is being loaded from the server. (useState isLoading / scss)
+4. Unit test one module of choice. There is no need to test the whole app, as we only want to understand what you take into consideration when writing unit tests. (jest or unit test)
+__________________________________________________________________________________
+
+5. Avoid duplication and extract re-usable modules where it makes sense. We want to see your approach to creating a codebase that is easy to maintain.
+6. Push your code to the new implementation branch. We encourage you to commit and push your changes regularly as it's a good way for you to showcase your thinking process.
+7. Create a new pull request, but please do not merge it.(Github)
+9. Document the tech decisions you've made by creating a new review on your PR (see how). In particular, describe how you've made the frontend responsive.
+10. Await further instructions from the hiring team.
+
+__________________________________________________________
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
