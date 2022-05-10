@@ -34,9 +34,13 @@ export default function Transaction(props) {
                       <ListGroup.Item
                         as="li"
                         className="d-flex justify-content-between align-items-start border-0"
+                        data-type="transaction"
+                        data-account-id="{res.transaction_id}"
+                        data-amount="{res.amount}"
+                        data-balance="balance"
                       >
                         <div className="ms-2 me-auto">
-                          <div className="fw-bold">{res.transaction_id}</div>
+                          <div className="fw-bold" >{res.transaction_id}</div>
                           {res.account_id}
                         </div>
                         <Badge bg="" className='text-dark fs-5' pill>

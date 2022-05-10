@@ -30,7 +30,9 @@ const Home = () => {
     if(localStorage.transaction){
       setTransactionHistory(JSON.parse(localStorage.transaction).data); isMounted = false;
     }else{ 
-      setTransactionHistory([]);
+      Update().then(() => {
+        setTransactionHistory(JSON.parse(localStorage.transaction).data);
+      });
     }
     setLoading(false)
     return () => {
@@ -38,7 +40,7 @@ const Home = () => {
     }
   }, [])
 
-
+console.log(transactionHistory)
   return (
     <Container>
       <Row>
